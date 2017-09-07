@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telphone=no, email=no" >
+	<title>Document</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/swiper-3.3.1.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link type="text/css" rel="stylesheet" href="font/iconfont.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="box" id="box">
+		<header class="header">
+			<div class="left"></div>
+			<div class="center">购物车(102)</div>
+			<div class="left">编辑</div>
+		</header>
+		<div class="main">
+			<div class="top">
+				<div class="le iconfont">&#xe70a;</div>
+				<p class="tex">我的天猫超市可用余额：79.9元，在天猫APP可使用超市卡结算哦！</p>
+				<div class="rs iconfont">&#xe646;</div>
+			</div>
+			<div class="mid" v-for="item in arr">
+				<div class="m_top">
+					<span><b>✔</b></span>
+					<p><img :src="item.imgs" alt=""></p>
+					<em>{{item.name}}</em>
+					<i class="iconfont">&#xe68c;</i>
+				</div>
+				<div class="m_bot" v-for="items in item.arr1">
+					<span><b>✔</b></span>
+					<dl>
+						<dt><img :src="items.img" alt=""></dt>
+						<dd>
+							<div class="ls">
+								<div class="ls_top">
+									<p>{{items.tex}}</p>
+									<i class="iconfont">&#xe68f;</i>
+								</div>
+								<div class="ls_bot">
+									<div class="spn1"><div class="em1">{{items.price1}}</div><div class="b1">{{items.price2}}</div></div>
+									<div class="i1">{{items.num}}</div>
+								</div>
+							</div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<ul class="uls">
+				<li><span><b>✔</b></span></li>
+				<li>全选</li>
+				<li>合计:</li>
+				<li>￥0</li>
+				<li>结算(0)</li>
+			</ul>
+			<ul class="ols" id="ols">
+				<li><i class="iconfont">&#xe7d4;</i><span>首页</span></li>
+				<li><i class="iconfont">&#xe6f5;</i><span>微淘</span><b></b></li>
+				<li><i class="iconfont">&#xe6bc;</i><span>消息</span><em>1</em></li>
+				<li class="on"><i class="iconfont">&#xe63f;</i><span>购物车</span></li>
+				<li><i class="iconfont">&#xe736;</i><span>我的淘宝</span></li>
+			</ul>
+		</footer>
+	</div>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/js.js"></script>
+</body>
+</html>
