@@ -1,0 +1,59 @@
+var gulp = require("gulp");
+var webserver = require("gulp-webserver");
+var data = [
+	{
+		"img":"images/1_07.jpg",
+		"tex1":"QQ看点",
+		"tex2":"下午2:08",
+		"tex3":"[精选]",
+		"tex4":"LOL丝血金身被4名敌人围"
+	},
+	{
+		"img":"images/1_10.jpg",
+		"tex1":"群助手",
+		"tex2":"下午2:03",
+		"tex3":"[1个群有新消息]",
+		"tex4":""
+	},
+	{
+		"img":"images/1_13.jpg",
+		"tex1":"张启文",
+		"tex2":"上午12:12",
+		"tex3":"",
+		"tex4":"【图片】"
+	},
+	{
+		"img":"images/1_16.jpg",
+		"tex1":"小俺",
+		"tex2":"上午12:08",
+		"tex3":"",
+		"tex4":"在干什么？"
+	},
+	{
+		"img":"images/1_18.jpg",
+		"tex1":"言希",
+		"tex2":"上午9:02",
+		"tex3":"",
+		"tex4":"吃饭了吗？"
+	},
+	{
+		"img":"images/2_21.jpg",
+		"tex1":"小朋友..",
+		"tex2":"上午7:03",
+		"tex3":"",
+		"tex4":"我去上学啦。"
+	}
+]
+gulp.task("webserver",function(){
+	gulp.src("gulp")
+		.pipe(webserver({
+			port:8881,
+			middleware:function(req,res,next){
+				res.setHeader("Access-Control-Allow-Origin","*");
+				res.setHeader("content-type","application/json;charset=utf-8");
+				res.write(JSON.stringify(data));
+				res.end()
+			}
+		}))
+})
+gulp.task("default",["webserver"])
